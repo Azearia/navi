@@ -96,24 +96,19 @@ class Navi:
 
         if os.path.isdir(self.currentdir + '/' + self.currentdirlist[self.cursorpos]):
             self.currentdir = self.currentdir + '/' + self.currentdirlist[self.cursorpos]
-
-            self.refreshdir()
-
         else:
             self.responsemsg = 'Invalid directory'
 
-            self.refreshpage()
+        self.refreshdir()
         
     def outpage(self):
 
         if '/'.join(self.currentdir.split('/')[:-1]) != '':
             self.currentdir = '/'.join(self.currentdir.split('/')[:-1])
-
-            self.refreshdir()
         else:
             self.responsemsg = 'Cannot go back any farther'
 
-            self.refreshpage()
+        self.refreshdir()
 
     def refreshdir(self, curspos = 0):
         self.currentdirlist = os.listdir(self.currentdir)
