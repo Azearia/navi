@@ -16,7 +16,7 @@ class Navi:
 
             if '.' in filepath: self.suffix = filepath.split('.')[-1]
 
-        def _clear(self):
+        def clear(self):
             self.abspath = ''
             self.name = ''
             self.suffix = ''
@@ -25,9 +25,9 @@ class Navi:
             if self.abspath != '':
                 if self.abspath != os.path.abspath(newpath+'/'+self.name):
                     shutil.move(self.abspath, newpath)
-                    self._clear()
+                    self.clear()
                 else:
-                    self._clear()
+                    self.clear()
 
 
     def __init__(self):
