@@ -75,9 +75,10 @@ class Navi:
         self.refreshpage()
 
     def refreshpage(self):
-        print('-------------------')
         os.system(self.osclear)
 
+        print(self.currentdir)
+        print('-------------------')
         for ct, item in enumerate(self.currentdirlist):
             if os.path.abspath(f'./{item}') == self.file.abspath:
                 item = item+' : (HOLDING)'
